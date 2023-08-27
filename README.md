@@ -10,7 +10,7 @@ Build projects with **LLMs** that will enable you to create dynamic interfaces, 
 
 ### Tools
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)<img src="https://sourcetoad.com/wp-content/uploads/2023/06/LangChain-Horizontal.png" width=113><img src="https://docs.trychroma.com/img/chroma.svg" width=50>
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)<img src="https://sourcetoad.com/wp-content/uploads/2023/06/LangChain-Horizontal.png" width=113><img src="./artifacts/images/chroma.png" width=130>
 
 ### Course Contents
 

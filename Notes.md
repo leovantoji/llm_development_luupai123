@@ -51,3 +51,59 @@ We'll be using `vector dbs` instead as it's a lot more effective for information
 Go to [ChatGPT Playground](/src/openai_playground.ipynb).
 
 [`tiktoken`](https://pypi.org/project/tiktoken/) is a tool that can help us count the number of tokens being used.
+
+## 3. VectorDBs and Embeddings
+
+**VectorDBs** are databases specifically for **storing embeddings**. Embeddings group similar objects or entities in a space.
+
+<img src="./artifacts/images/embeddings_image.png" width=600>
+
+Use cases of embeddings:
+
+- Recommendation systems.
+- Search Engines.
+- Generative AI.
+- Memory for LLMs.
+- Context window expansion.
+- Agents like AutoGPT.
+
+<img src="./artifacts/images/document_qa_system.png" width=600>
+
+Why should we use vector databases?
+
+- Fast retrieval of the relevant context from embeddings.
+- Convenient storage of embeddings.
+- Context length augmentation.
+
+Metadata helps us to store additional information about the embeddings. In the case that the model hallucinates, we can still look at the metadata and make our own decision.
+
+```python
+import chromadb
+
+
+chroma_client = chromadb.Client()
+
+
+collection = chroma_client.create_collection(name="my_collection")
+collection.add(
+    documents=[
+        "this is a plumbing company",
+        "we need a plumber asap",
+        "kitchen sink has problems",
+        "the living room is flooding",
+        "bathroom needs cleaning immediately",
+        "help! cleaner needed",
+    ],
+    metadatas=[
+        {"source": "plumbing"},
+        {"source": "plumbing"},
+        {"source": "plumbing"},
+        {"source": "plumbing"},
+        {"source": "cleaning"},
+        {"source": "cleaning"},
+    ],
+    ids=["id1", "id2", "id3", "id4", "id5", "id6"],
+)
+```
+
+At the time of writing, `chromadb` will automatically loads `all-MiniLM-L6-v2` model from `huggingface` if it's not found in the local cache. This model is a `sentence-transformers`'s [pre-trained model](https://www.sbert.net/docs/pretrained_models.html).
